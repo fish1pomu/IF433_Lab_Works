@@ -3,8 +3,8 @@ package oop_00000116912_devlinvalentino_week2
 class Student(
     val name: String,
     val nim: String,
-    var gpa: Double = 0.0,
-    var major: String
+    var major: String,
+    var gpa: Double = 0.0
 ) {
     init {
         if (nim.length != 5) {
