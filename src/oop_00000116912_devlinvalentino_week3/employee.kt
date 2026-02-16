@@ -10,7 +10,12 @@ class Employee(val name: String) {
                 field = value
             }
             println("mencoba set gaji ke: $value")
+
         }
+
+    val tax: Double
+        get() = salary *0.1
+
     private var performanceRating: Int = 3
     fun increasePerformance() {
         performanceRating++
