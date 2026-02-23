@@ -1,0 +1,11 @@
+package oop_00000116912_devlinvalentino_week4
+
+class developer(name: String, baseSalary: Int, val programmingLanguage: String)
+: employee(name, baseSalary) {
+
+    override fun work() {
+        println("$name sedang ngoding menggunakan $programmingLanguage.")
+    }
+
+
+}
