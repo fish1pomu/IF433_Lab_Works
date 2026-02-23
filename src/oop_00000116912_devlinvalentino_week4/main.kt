@@ -11,5 +11,11 @@ package oop_00000116912_devlinvalentino_week4
         myCar.honk()
         myCar.accelerate()
 
+        println("\n--- Testing Electric Car ---")
+        val myEV = ElectricCar(brand = "Tesla", numberOfDoors = 4, batteryCapacity = 100)
+        myEV.openTruck()
+        myEV.honk()
+        myEV.accelerate()
+
     }
 
