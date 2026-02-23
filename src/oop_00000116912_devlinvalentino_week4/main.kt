@@ -17,7 +17,15 @@ package oop_00000116912_devlinvalentino_week4
         myEV.honk()
         myEV.accelerate()
 
+        val managerKita = Manager("rine", 7000000)
+        val devKita = developer("yulianto", 6000000, "Kotlin")
 
+        println("\n--- Data Karyawan ---")
+        managerKita.work()
+        println("Bonus: ${managerKita.calculateBonus()}")
+
+        devKita.work()
+        println("Bonus: ${devKita.calculateBonus()}")
 
 
     }
