@@ -1,6 +1,6 @@
 package oop_00000116912_devlinvalentino_week4
 
-open class vihicle(val brand: String){
+open class vehicle(val brand: String){
     var speed Int = 0
 
 
