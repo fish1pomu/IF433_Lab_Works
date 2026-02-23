@@ -6,6 +6,11 @@ open class Car(brand: String, val numberOfDoor: Int) : vehicle(brand) {
         println("TIN TIN! Mobil $brand lewat!")
     }
 
+    override fun accelerate() {
+        super.accelerate() // Memanggil speed += 10 dari Vehicle
+        println("Mobil $brand menggunakan transmisi gigi untuk menambah kecepatan.")
+    }
+
     fun openTruck() {
         println("bagasi mobil $brand dengan $numberOfDoor pintu dibuka")
     }
