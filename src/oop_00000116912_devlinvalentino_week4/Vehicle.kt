@@ -1,7 +1,7 @@
 package oop_00000116912_devlinvalentino_week4
 
 open class vehicle(val brand: String){
-    var speed Int = 0
+    var speed: Int = 0
 
 
     open fun accelerate() {
