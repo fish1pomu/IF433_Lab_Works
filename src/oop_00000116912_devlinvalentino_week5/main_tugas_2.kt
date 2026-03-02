@@ -14,6 +14,16 @@ fun main() {
 
         metode.processPayment(75000.0)
 
+        if (metode is eWallet) {
+            println("-> [Smart Cast] Terdeteksi EWallet. Menjalankan recovery...")
+
+
+            metode.topUp(50000.0)
+
+            println("-> Mencoba pembayaran ulang...")
+            metode.processPayment(75000.0)
+        }
+
         println("-----------------------------------------")
     }
 }
