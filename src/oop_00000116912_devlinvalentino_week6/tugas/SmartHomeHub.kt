@@ -20,5 +20,18 @@ class smartHomeHub {
                 println("${device.name} tidak memiliki saklar mati/nyala.")
             }
         }
-    }t
+    }
+
+    fun activateSecurityMode(){
+        println("\n--- Mengaktifkan Mode Keamanan ---")
+        for (devices in devices){
+            if (devices is Recordable){
+                devices.startRecord()
+            }
+
+            if (devices is smartSpeaker) {
+                devices.playMusic("Sirine Peringatan")
+        }
+    }
+
 }
