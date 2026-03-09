@@ -1,8 +1,7 @@
 package oop_00000116912_devlinvalentino_week6.tugas
 
-package oop_00000116912_devlinvalentino_week6.tugas
 
-class smartLamp(
+class smartCCTV(
     override val id: String,
     override val name: String
 ) : SmartDevice, Switchable, Recordable{
