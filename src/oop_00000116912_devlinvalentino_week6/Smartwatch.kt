@@ -5,7 +5,7 @@ class smartwatch : watch(), BluetoothConnecttable, Rechargeable{
         println("layar oled menyala: 14:00 wib")
     }
 
-    override fun connectTobluetoot(){
+    override fun connectTobluetooth(){
         println("mencari perangkat hp di sekitar untuk pairing")
     }
 
