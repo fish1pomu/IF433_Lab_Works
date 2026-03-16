@@ -10,7 +10,7 @@ object gameManager {
         }
         else {
             isGameRunning = true
-            println("Memulai Game Engine..."))
+            println("Memulai Game Engine...")
         }
     }
 }
