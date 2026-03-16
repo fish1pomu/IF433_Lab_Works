@@ -1,0 +1,10 @@
+package oop_00000116912_devlinvalentino_week7.tugas
+
+enum class ItemRarity(val dropChance: Int){
+    COMMON(70),
+    UNCOMMON(30),
+    RARE(15),
+    EPIC(5),
+    LEGENDARY(1)
+}
+
