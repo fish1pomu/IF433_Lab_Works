@@ -1,3 +1,3 @@
 package oop_00000116912_devlinvalentino_week7
 
-class RegularUser(val name: String, val age: Int)
+data class RegularUser(val name: String, val age: Int)
