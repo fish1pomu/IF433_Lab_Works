@@ -4,8 +4,14 @@ fun main() {
 
     println("Simulasi Game Engine ")
 
+    val legendaryRarity = ItemRarity.LEGENDARY
+    println("Drop chance untuk item LEGENDARY adalah: ${legendaryRarity.dropChance}%")
 
-    gameManager.startGame()
 
-    gameManager.startGame()
+    val starterWeapon = Weapon.forgeStarterSword()
+
+    println("Senjata Awal Berhasil Dibuat!")
+    println("Detail Senjata: ${starterWeapon.item.name}")
+    println("Damage: ${starterWeapon.item.damage} | Durability: ${starterWeapon.durability}")
+    println("Kelangkaan: ${starterWeapon.item.rarity.name}")
 }
