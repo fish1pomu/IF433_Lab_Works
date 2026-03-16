@@ -4,14 +4,22 @@ fun main() {
 
     println("Simulasi Game Engine ")
 
-    val legendaryRarity = ItemRarity.LEGENDARY
-    println("Drop chance untuk item LEGENDARY adalah: ${legendaryRarity.dropChance}%")
+        gameManager.startGame()
+        gameManager.startGame()
+
+        val starterWeapon = Weapon.forgeStarterSword()
+
+        println("\nSenjata Awal: ${starterWeapon.item.name}")
+        println("Damage: ${starterWeapon.item.damage} | Durability: ${starterWeapon.durability}")
 
 
-    val starterWeapon = Weapon.forgeStarterSword()
+        val upgradedItem = starterWeapon.item.copy(damage = 25)
+        println("\nBerhasil upgrade ${upgradedItem.name}! Damage sekarang: ${upgradedItem.damage}")
 
-    println("Senjata Awal Berhasil Dibuat!")
-    println("Detail Senjata: ${starterWeapon.item.name}")
-    println("Damage: ${starterWeapon.item.damage} | Durability: ${starterWeapon.durability}")
-    println("Kelangkaan: ${starterWeapon.item.rarity.name}")
-}
+
+        println("\n--- Memulai Battle Log ---")
+        processEvent(BattleState.SafeZone)
+        processEvent(BattleState.MonsterEncounter("Goblin Nakal"))
+        processEvent(BattleState.LootDropped(upgradedItem))
+        processEvent(BattleState.GameOver("Terkena jebakan racun"))
+    }
