@@ -26,6 +26,7 @@ fun main(){
     val response: ApiResponse= ApiResponse.Success("data berhasil di tarik")
 
     val uniMassage = when (response) {
+        ApiResponse.Loading -> "Tampilkan Spinner"
         is ApiResponse.Success -> "tampilkan: ${response.data}"
         is ApiResponse.error -> "munculkan alert: ${response.massage}"
     }
