@@ -20,4 +20,13 @@ fun main(){
 
     val(userName, userAge) = data1
     println("Desruction: $userName berumur $userAge")
+
+
+    println("test sealed class")
+    val response: ApiResponse= ApiResponse.Success("data berhasil di tarik")
+
+    val uniMassage = when (response) {
+        is ApiResponse.Success -> "tampilkan: ${response.data}"
+        is ApiResponse.error -> "munculkan alert: ${response.massage}"
+    }
 }
