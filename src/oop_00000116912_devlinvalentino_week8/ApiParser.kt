@@ -1,6 +1,6 @@
 package oop_00000116912_devlinvalentino_week8
 
-class apiParser {
+class ApiParser {
 
     fun parseProduct(rawJson: Map<String, Any?>): Product? {
 
@@ -27,5 +27,17 @@ class apiParser {
 
             else -> null
         }
+    }
+
+    fun checkout(product: Product) {
+
+        val id = when (product) {
+            is Product.Electronic -> product.id
+            is Product.Clothing -> product.id
+        }
+
+        val transactionId = JavaPaymentService.processPayment(id)!!
+
+        println("Transaction ID: $transactionId")
     }
 }
