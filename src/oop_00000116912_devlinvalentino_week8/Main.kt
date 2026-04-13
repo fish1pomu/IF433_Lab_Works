@@ -15,4 +15,14 @@ fun main(){
         "transaksi valid. harga rp $price, pajak: rp $tax"
     }?: "transaksi invalid: harga belu  di set!"
     println(receipt)
+
+    println("\n==== TEST SAFE CASTING ===")
+    val mixedDate: list<any> = listOf(
+        "smartphone",
+        150000,
+        userprofile("Andi", null),
+        "laptop",
+        4500000.0
+    )
+
 }
