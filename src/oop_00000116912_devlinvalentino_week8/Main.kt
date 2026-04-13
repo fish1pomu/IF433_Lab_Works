@@ -17,12 +17,19 @@ fun main(){
     println(receipt)
 
     println("\n==== TEST SAFE CASTING ===")
-    val mixedDate: list<any> = listOf(
+    val mixedDate: List<Any> = listOf(
         "smartphone",
         150000,
         userprofile("Andi", null),
         "laptop",
         4500000.0
     )
+    for(item in mixedDate){
+        val text = item as? String
+
+        text?.let {
+            println("ditemukan teks: ${it.uppercase()}")
+        }
+    }
 
 }
