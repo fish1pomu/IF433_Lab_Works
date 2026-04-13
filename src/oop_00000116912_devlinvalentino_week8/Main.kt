@@ -36,4 +36,12 @@ fun main(){
     val safeString = someObject as? String?:"unknown string"
     println("hasil daria cast + fallback $safeString")
 
+    println("\n==== TEST THE RED BUTTON ====")
+    val toxicData: String? = null
+    try{
+        val legth = toxicData!!.length
+    }catch (e: NullPointerException){
+        println("CRASH(npd)! jangan gunakan !! secara sebarangan")
+    }
+
 }
