@@ -28,7 +28,7 @@ fun main(){
         val text = item as? String
 
         text?.let {
-            println("ditemukan teks: ${it.uppercase()}")
+            println("ditemukan tekss: ${it.uppercase()}")
         }
     }
 
