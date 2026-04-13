@@ -37,11 +37,11 @@ fun main(){
     println("hasil daria cast + fallback $safeString")
 
     println("\n==== TEST THE RED BUTTON ====")
-    val toxicData: String? = null
+    val apiResponse: Map<String, String?> = mapOf("status" to "200", "token" to null)
     try{
-        val legth = toxicData!!.length
-    }catch (e: NullPointerException){
-        println("CRASH(npd)! jangan gunakan !! secara sebarangan")
+        val token = requireNotNull(apiResponse["token"])
+    }catch (e: IllegalArgumentException){
+        println(e.message)
     }
 
 }
