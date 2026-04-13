@@ -20,7 +20,7 @@ fun main(){
     val mixedDate: List<Any> = listOf(
         "smartphone",
         150000,
-        userprofile("Andi", null),
+        Userprofile("Andi", null),
         "laptop",
         4500000.0
     )
@@ -31,5 +31,9 @@ fun main(){
             println("ditemukan teks: ${it.uppercase()}")
         }
     }
+
+    val someObject: Any = 100
+    val safeString = someObject as? String?:"unknown string"
+    println("hasil daria cast + fallback $safeString")
 
 }

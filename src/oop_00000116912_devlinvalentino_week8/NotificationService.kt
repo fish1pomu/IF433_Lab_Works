@@ -5,7 +5,7 @@ class notificationservice{
         println("mengirim email ke $emailAddress")
     }
 
-    fun proccessEmail(emailAddress: String){
+    fun proccessUser(user: Userprofile){
 
         if (user.email != null){
 
