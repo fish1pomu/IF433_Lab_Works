@@ -49,4 +49,10 @@ fun main() {
         }
     println("\n=== WORST PERFORMERS REPORT ===")
     worstPerformersString.forEach { println(it) }
+
+    val uniquePairs = tradeHistory
+        .map { it.pair }
+        .toSet()
+    println("\n=== DAFTAR ASET YANG PERNAH DITRADINGKAN ===")
+    println("Koin: ${uniquePairs.joinToString(", ")}")
 }
