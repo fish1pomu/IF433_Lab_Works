@@ -16,8 +16,9 @@ fun main() {
     println("Total Transaksi: ${tradeHistory.size}")
 
 
-    tradeHistory.forEach {
-        val trend = if (it.roe >= 0) " PROFIT" else " LOSS"
-        println("${it.pair} | ${it.position} | ROE: ${it.roe}% | Status: ${it.status} | $trend")
+    val closedTrades = tradeHistory.filter { it.status == "CLOSED" }
+    println("=== CLOSED TRADES ONLY ===")
+    closedTrades.forEach {
+        println("Pair: ${it.pair} | ROE: ${it.roe}% | Status: ${it.status}")
     }
 }
