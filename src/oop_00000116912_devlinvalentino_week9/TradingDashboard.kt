@@ -21,4 +21,10 @@ fun main() {
     closedTrades.forEach {
         println("Pair: ${it.pair} | ROE: ${it.roe}% | Status: ${it.status}")
     }
+
+    val winningTrades = closedTrades.filter { it.roe > 0 }
+    println("\n=== WINNING TRADES (PROFIT ONLY) ===")
+    winningTrades.forEach {
+        println("Profit: ${it.pair} | ROE: +${it.roe}%")
+    }
 }
