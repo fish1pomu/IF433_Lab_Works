@@ -81,6 +81,6 @@ fun main() {
     println(uniquePairs.joinToString(separator = ", "))
     println("=".repeat(40))
 
-    println("\n=== DASHBOARD SELESAI ===")
+    println("\n=== DASHBOARD SELESAI ==")
 
 }
