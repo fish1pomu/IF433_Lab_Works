@@ -27,4 +27,10 @@ fun main() {
     winningTrades.forEach {
         println("Profit: ${it.pair} | ROE: +${it.roe}%")
     }
+
+    val losingTrades = closedTrades.filter { it.roe <= 0 }
+    println("\n=== LOSING TRADES (LOSS/BREAK EVEN) ===")
+    losingTrades.forEach {
+        println("Loss: ${it.pair} | ROE: ${it.roe}%")
+    }
 }
