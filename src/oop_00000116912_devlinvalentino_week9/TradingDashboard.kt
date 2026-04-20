@@ -53,6 +53,20 @@ fun main() {
     val uniquePairs = tradeHistory
         .map { it.pair }
         .toSet()
+
+
     println("\n=== DAFTAR ASET YANG PERNAH DITRADINGKAN ===")
     println("Koin: ${uniquePairs.joinToString(", ")}")
+    println("=== CRYPTO TRADING DASHBOARD ===")
+
+    println("\n[ TOP PERFORMERS ]")
+    topPerformersString.forEach { println(it) }
+
+    println("\n[ WORST PERFORMERS ]")
+    worstPerformersString.forEach { println(it) }
+
+    println("\n----------------------------------")
+    println("Assets Traded: ${uniquePairs.joinToString(", ")}")
+    println("----------------------------------")
+
 }
