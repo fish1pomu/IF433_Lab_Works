@@ -68,5 +68,19 @@ fun main() {
     println("\n----------------------------------")
     println("Assets Traded: ${uniquePairs.joinToString(", ")}")
     println("----------------------------------")
+    println("\n[ WORST PERFORMERS ]")
+    if (worstPerformersString.isEmpty()) {
+        println("Tidak ada riwayat transaksi loss.")
+    } else {
+        worstPerformersString.forEach { line ->
+            println(line)
+        }
+    }
+    println("\n" + "=".repeat(40))
+    println("DAFTAR KOIN YANG PERNAH DITRADINGKAN:")
+    println(uniquePairs.joinToString(separator = ", "))
+    println("=".repeat(40))
+
+    println("\n=== DASHBOARD SELESAI ===")
 
 }
