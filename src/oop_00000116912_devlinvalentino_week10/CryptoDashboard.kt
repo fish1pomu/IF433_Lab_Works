@@ -24,7 +24,7 @@ fun main() {
     txRepo.add(Transaction("TX-003", 10.0))
 
 
-    println("\n=== Transaction History ===")
+    println("\n=== Transaction History ==")
     txRepo.getAll().forEach { tx ->
         println("ID: ${tx.id} | Amount: ${tx.amount}")
     }
