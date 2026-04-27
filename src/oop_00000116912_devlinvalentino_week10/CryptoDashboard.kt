@@ -1,6 +1,6 @@
 package oop_00000116912_devlinvalentino_week10
 
-fun main(){
+fun main() {
     val coinRepo = walletRepository<Coin>()
 
     coinRepo.add(Coin("BTC", 0.125))
@@ -14,5 +14,18 @@ fun main(){
     println("--- Detail Aset ---")
     response.data.forEach { coin ->
         println("Nama Koin: ${coin.name} | Saldo: ${coin.balance}")
+    }
+
+    val txRepo = walletRepository<Transaction>()
+
+
+    txRepo.add(Transaction("TX-001", 0.05))
+    txRepo.add(Transaction("TX-002", 120.5))
+    txRepo.add(Transaction("TX-003", 10.0))
+
+
+    println("\n=== Transaction History ===")
+    txRepo.getAll().forEach { tx ->
+        println("ID: ${tx.id} | Amount: ${tx.amount}")
     }
 }
