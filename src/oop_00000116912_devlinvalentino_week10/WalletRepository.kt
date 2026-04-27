@@ -9,4 +9,11 @@ class walletRepository<T>{
     fun getAll(): List<T> {
         return items
     }
+
+    fun <S> findByName(query: String): S?
+            where S : T, S : Searchable {
+        return items
+            .filterIsInstance<Searchable>()
+            .find { it.name.equals(query, ignoreCase = true) } as? S
+    }
 }
