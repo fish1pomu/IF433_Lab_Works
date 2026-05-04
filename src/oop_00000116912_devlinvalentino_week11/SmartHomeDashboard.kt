@@ -38,4 +38,10 @@ fun main() {
         val statusDiagnosa = it.diagnose()
         println("Hasil Pencarian: $statusDiagnosa")
     } ?: println("Pencarian Gagal: Perangkat dengan kategori Camera tidak ditemukan.")
+
+    with(homeDevices) {
+        println("\n=== RINGKASAN SISTEM ===")
+        println("Total perangkat yang terdaftar: ${this.size}")
+        println("Status Dashboard: Aktif")
+    }
 }
