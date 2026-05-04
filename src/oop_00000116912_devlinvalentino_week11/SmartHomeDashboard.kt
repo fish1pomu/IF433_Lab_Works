@@ -49,4 +49,10 @@ fun main() {
     }
 
     println("Total penggunaan daya: $totalPower Watt")
+
+    println("\n=== STATUS PERANGKAT DASHBOARD ===")
+
+    homeDevices.forEach { device ->
+        println(device.diagnose())
+    }
 }
