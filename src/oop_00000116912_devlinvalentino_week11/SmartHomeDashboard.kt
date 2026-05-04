@@ -29,4 +29,13 @@ fun main() {
         homeDevices.add(SmartDevice("Picolo's Auto Feeder", "Pet Care", true, 10))
 
     }
+
+    println("\n=== PENCARIAN PERANGKAT ===")
+
+    val searchResult = homeDevices.find { it.category == "Camera" }
+
+    searchResult?.let {
+        val statusDiagnosa = it.diagnose()
+        println("Hasil Pencarian: $statusDiagnosa")
+    } ?: println("Pencarian Gagal: Perangkat dengan kategori Camera tidak ditemukan.")
 }
