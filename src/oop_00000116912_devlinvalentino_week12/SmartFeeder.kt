@@ -51,13 +51,19 @@ fun main() {
     println("\n--- Jadwal Makan 2: Sore ---")
 
     currentKibbleStock = 1000
+
     runCatching {
-        dispenseKibble(30, currentKibbleStock, false)
+        dispenseKibble(
+            requestedGram = 30,
+            availableGram = currentKibbleStock,
+            isJammed = false
+        )
     }.onSuccess { newStock ->
         currentKibbleStock = newStock
         println("Makan sore sukses! Sisa stok kibble: $currentKibbleStock gr")
-    }.onFailure { e ->
-        println("Error: ${e.message}")
+    }.onFailure { error ->
+
+        println("Peringatan ke Pemilik: ${error.message}")
     }
 }
 
