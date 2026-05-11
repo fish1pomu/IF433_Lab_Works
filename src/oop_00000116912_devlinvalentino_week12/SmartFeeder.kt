@@ -13,11 +13,12 @@ isJammed: Boolean
         throw FeederException.DispenserJamException()
     }
 
-    return if (requestedGram <= availableGram) {
-        availableGram - requestedGram
-    } else {
-        0
+    if (requestedGram > availableGram) {
+        throw FeederException.FoodEmptyException(requestedGram, availableGram)
     }
+
+    println("Kibble berhasil dikeluarkan!")
+    return availableGram - requestedGram
 
 }
 
