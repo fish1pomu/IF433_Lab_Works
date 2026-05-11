@@ -10,5 +10,13 @@ fun main(){
     println("Safe Value (getOrElse): $safeValue")
     val recovered = result.recover { 0 }.getOrNull()
     println("Recovered Value: $recovered")
+
+    runCatching{
+        "100".toInt()
+    }.onSuccess{v ->
+        println("berhasil di konversi: $v")
+    }.onFailure{e ->
+        println("gagal konversi: ${e.message}")
+    }
 }
 
