@@ -22,4 +22,8 @@ isJammed: Boolean
 
 }
 
+fun main() {
+    var currentKibbleStock = 50
+}
+
 
