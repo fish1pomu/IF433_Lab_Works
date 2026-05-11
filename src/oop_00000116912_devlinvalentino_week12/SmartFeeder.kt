@@ -25,6 +25,8 @@ isJammed: Boolean
 fun main() {
     var currentKibbleStock = 50
 
+    println("--- Jadwal Makan 1: Pagi ---")
+
     try {
         currentKibbleStock = dispenseKibble(
             requestedGram = 80,
@@ -41,6 +43,9 @@ fun main() {
 
     } catch (e: Exception) {
         println("Terjadi kesalahan sistem: ${e.message}")
+
+    } finally {
+        println("Siklus pengecekan dispenser pagi selesai.")
     }
 }
 
