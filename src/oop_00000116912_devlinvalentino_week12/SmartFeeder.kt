@@ -24,6 +24,24 @@ isJammed: Boolean
 
 fun main() {
     var currentKibbleStock = 50
+
+    try {
+        currentKibbleStock = dispenseKibble(
+            requestedGram = 80,
+            availableGram = currentKibbleStock,
+            isJammed = false
+        )
+        println("Sisa stok sekarang: $currentKibbleStock gr")
+
+    } catch (e: FeederException.DispenserJamException) {
+        println("Error: ${e.message}")
+
+    } catch (e: FeederException.FoodEmptyException) {
+        println("Error: ${e.message}")
+
+    } catch (e: Exception) {
+        println("Terjadi kesalahan sistem: ${e.message}")
+    }
 }
 
 
