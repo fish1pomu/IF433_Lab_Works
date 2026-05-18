@@ -76,6 +76,6 @@ fun main() {
     val totalPnL = loadedData.sumOf { it.pnl }
 
     println("\n=========================================")
-    println("TOTAL PNL BERSIH AKUN: $totalPnL")
+    println("total pnl bersih: $totalPnL")
     println("=========================================")
 }
