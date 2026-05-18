@@ -59,4 +59,18 @@ fun main() {
 
     println("Memulai proses penyimpanan ${mockTrades.size} data trade...")
     saveTrades(mockTrades, filePath)
+    println("Data awal berhasil disimpan.")
+
+
+    File(filePath).appendText("CORRUPT_ID,DOGEUSDT,Hold,XX,YY\n")
+    println("Sengaja menyuntikkan data korup ke dalam file CSV...")
+
+
+    println("\n=== VERIFIKASI HASIL LOAD SYSTEM ===")
+    val loadedData = loadTrades(filePath)
+
+    println("\n=== DAFTAR TRADE YANG BERHASIL DIBACA ===")
+    loadedData.forEach { trade ->
+        println("Loaded: $trade")
+    }
 }
