@@ -73,4 +73,9 @@ fun main() {
     loadedData.forEach { trade ->
         println("Loaded: $trade")
     }
+    val totalPnL = loadedData.sumOf { it.pnl }
+
+    println("\n=========================================")
+    println("TOTAL PNL BERSIH AKUN: $totalPnL")
+    println("=========================================")
 }
