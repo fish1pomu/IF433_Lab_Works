@@ -11,13 +11,19 @@ data class TradeRecord(
 fun TradeRecord.toCsv(): String = "${id},${symbol},${type},${margin},${pnl}"
 
 fun fromCsvTrade(line: String): TradeRecord? {
-    val parts = line.split(",")
+    return try {
+        val parts = line.split(",")
 
-    return TradeRecord(
-        id = parts[0].toIntOrNull() ?: return null,
-        symbol = parts[1],
-        type = parts[2],
-        margin = parts[3].toDoubleOrNull() ?: return null,
-        pnl = parts[4].toDoubleOrNull() ?: return null
-    )
+        TradeRecord(
+            id = parts[0].toInt(),
+            symbol = parts[1],
+            type = parts[2],
+            margin = parts[3].toDouble(),
+            pnl = parts[4].toDouble()
+        )
+    } catch (e: Exception) {
+        // Menangkap segala bentuk Exception (NumberFormatException / IndexOutOfBoundsException)
+        println("(Log) Data korup diabaikan: $line")
+        null // Return null jika tertangkap
+    }
 }
