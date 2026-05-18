@@ -1,4 +1,5 @@
 package oop_00000116912_devlinvalentino_week13
+import java.io.File
 
 data class TradeRecord(
     val id: Int,
@@ -25,5 +26,13 @@ fun fromCsvTrade(line: String): TradeRecord? {
         // Menangkap segala bentuk Exception (NumberFormatException / IndexOutOfBoundsException)
         println("(Log) Data korup diabaikan: $line")
         null // Return null jika tertangkap
+    }
+}
+
+fun saveTrades(trades: List<TradeRecord>, path: String) {
+    File(path).printWriter().use { writer ->
+        trades.forEach { trade ->
+            writer.println(trade.toCsv())
+        }
     }
 }
