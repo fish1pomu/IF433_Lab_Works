@@ -1,0 +1,2 @@
+log 1: membuka koneksi database
+log 2: menulis data pengguna
