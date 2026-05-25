@@ -3,19 +3,36 @@ import java.io.File
 
 
 interface OrderRepository {
-    fun saveOrder(itemName: String, finalPrice: Double, customerType: String)
+    fun saveOrder(itemName: String, finalPrice: Double, pricingType: String)
 }
 
 interface NotificationService {
     fun sendNotification(itemName: String)
 }
 
+interface PricingStrategy {
+    fun calculate(price: Double): Double
+    fun getStrategyName(): String // Tambahan pembantu untuk mencatat tipe customer di CSV
+}
+
+
+class RegularPricing : PricingStrategy {
+    override fun calculate(price: Double): Double = price
+    override fun getStrategyName(): String = "REGULAR"
+}
+
+class VipPricing : PricingStrategy {
+    override fun calculate(price: Double): Double = price * 0.90
+    override fun getStrategyName(): String = "VIP"
+}
+
+
 class CsvOrderRepository : OrderRepository {
     private val file = File("orders.csv")
 
-    override fun saveOrder(itemName: String, finalPrice: Double, customerType: String) {
+    override fun saveOrder(itemName: String, finalPrice: Double, pricingType: String) {
         file.printWriter().use { writer ->
-            writer.println("$itemName,$finalPrice,$customerType")
+            writer.println("$itemName,$finalPrice,$pricingType")
         }
     }
 }
@@ -25,23 +42,22 @@ class EmailNotifier : NotificationService {
         println("Email terkirim: Pesanan $itemName Anda telah dikonfirmasi!")
     }
 }
+=
 
 class SafeOrderProcessor(
     private val repo: OrderRepository,
     private val notifier: NotificationService
 ) {
-    fun processOrder(itemName: String, basePrice: Double, customerType: String) {
+    // processOrder sekarang menerima objek PricingStrategy langsung
+    fun processOrder(itemName: String, basePrice: Double, pricingStrategy: PricingStrategy) {
 
-        val finalPrice = when (customerType) {
-            "VIP" -> basePrice * 0.90
-            else -> basePrice
-        }
+        // Blok 'when' yang kaku sudah dihapus, kalkulasi didelegasikan ke strategy interface
+        val finalPrice = pricingStrategy.calculate(basePrice)
 
         println("Memproses pesanan $itemName seharga $finalPrice")
 
-
-        repo.saveOrder(itemName, finalPrice, customerType)
-
+        // Menyimpan data dengan nama tipe strategi yang aktif
+        repo.saveOrder(itemName, finalPrice, pricingStrategy.getStrategyName())
 
         notifier.sendNotification(itemName)
     }
